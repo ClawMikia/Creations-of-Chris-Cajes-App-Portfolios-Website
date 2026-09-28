@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creations of Chris Cajes – Web Portal</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#FF6B00',
+                        'primary-dark': '#e05d00',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="min-h-screen flex flex-col antialiased selection:bg-orange-500 selection:text-white">
+
+    <!-- NAVBAR -->
+    <nav class="bg-white/80 dark:bg-slate-900/80 backdrop-blur-md sticky top-0 z-50 border-b border-slate-200/80 dark:border-slate-800 transition-colors">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+
+                <!-- LOGO -->
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 bg-gradient-to-br from-orange-500 to-amber-600 rounded-xl flex items-center justify-center shadow-lg shadow-orange-500/30">
+                        <span class="text-white font-extrabold text-lg">P</span>
+                    </div>
+                    <div>
+                        <span class="text-xl font-extrabold tracking-tight text-slate-800 dark:text-white">Creations Portal</span>
+                        <span class="block text-[10px] uppercase tracking-widest text-orange-600 dark:text-orange-400 font-bold">Dynamic Web Version</span>
+                    </div>
+                </div>
+
+                <!-- ACTIONS -->
+                <div class="flex items-center gap-3">
+                    <button id="scan-new-apps-btn" title="Scan directory for newly added app folders" class="hidden sm:inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 font-semibold text-sm transition">
+                        <span>🔄</span>
+                        <span>Scan New Folders</span>
+                    </button>
+
+                    <button id="theme-toggle-btn" class="px-4 py-2.5 rounded-xl bg-orange-600 hover:bg-orange-700 text-white font-semibold text-sm shadow-lg shadow-orange-600/25 transition">
+                        Toggle Theme 🌙
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO HEADER -->
+    <header class="py-16 px-4 text-center max-w-4xl mx-auto">
+        <div class="inline-flex items-center gap-2 bg-orange-500/10 border border-orange-500/20 text-orange-600 dark:text-orange-400 font-bold text-xs px-3.5 py-1.5 rounded-full mb-6 uppercase tracking-wider">
+            <span>🚀</span>
+            <span>Dynamic Portfolio & Manuals Hub</span>
+        </div>
+
+        <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold mb-6 tracking-tight text-slate-900 dark:text-white leading-tight">
+            Explore My <span class="gradient-text">Creative Applications</span>
+        </h1>
+
+        <p class="text-base sm:text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto leading-relaxed">
+            Welcome to the centralized web portal. Select any application below to launch its interactive user guide, manual, and features overview.
+        </p>
+
+        <!-- STATS BADGES -->
+        <div class="flex flex-wrap justify-center items-center gap-6 mt-8 pt-6 border-t border-slate-200/60 dark:border-slate-800/80">
+            <div class="text-center">
+                <span id="total-apps-count" class="block text-2xl font-black text-orange-600 dark:text-orange-400">3</span>
+                <span class="text-xs font-semibold text-slate-500 uppercase tracking-wider">Total Apps</span>
+            </div>
+            <div class="h-8 w-px bg-slate-200 dark:bg-slate-800"></div>
+            <div class="text-center">
+                <span id="visible-apps-count" class="block text-2xl font-black text-emerald-500">3</span>
+                <span class="text-xs font-semibold text-slate-500 uppercase tracking-wider">Active Cards</span>
+            </div>
+            <div class="h-8 w-px bg-slate-200 dark:bg-slate-800"></div>
+            <div class="text-center">
+                <span class="block text-2xl font-black text-cyan-500">Auto</span>
+                <span class="text-xs font-semibold text-slate-500 uppercase tracking-wider">Folder Sync</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN SECTION -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20 flex-1 w-full">
+
+        <!-- SEARCH & CATEGORY CONTROLS -->
+        <div class="mb-10 space-y-6">
+            <!-- Search bar -->
+            <div class="relative max-w-2xl mx-auto">
+                <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-slate-400 text-lg">
+                    🔍
+                </div>
+                <input type="text" id="search-input" aria-label="Search applications" placeholder="Search applications by title, tags, or description..."
+                       class="w-full pl-12 pr-4 py-4 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-orange-500 shadow-sm transition">
+            </div>
+
+            <!-- Category Pills -->
+            <div class="flex flex-wrap justify-center gap-2">
+                <button class="category-pill active" data-category="All">All Projects</button>
+                <button class="category-pill" data-category="Mobile">Mobile Apps</button>
+                <button class="category-pill" data-category="Desktop">Desktop Apps</button>
+                <button class="category-pill" data-category="Admin">Admin Tools</button>
+                <button class="category-pill" data-category="User Manual">User Manuals</button>
+            </div>
+        </div>
+
+        <!-- APPS CONTAINER -->
+        <div id="apps-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch">
+
+            <!-- App 2 Card -->
+            <a href="app2/index.html" class="group block h-full focus:outline-none focus:ring-2 focus:ring-orange-500 rounded-2xl">
+                <div class="glass-card p-8 rounded-2xl shadow-sm group-hover:shadow-xl group-hover:-translate-y-2 transition-all duration-300 relative overflow-hidden flex flex-col h-full border border-slate-200/80 dark:border-slate-800">
+                    <div>
+                        <div class="w-14 h-14 bg-orange-500/10 text-orange-600 dark:text-orange-400 rounded-2xl flex items-center justify-center text-2xl mb-6 group-hover:bg-orange-500 group-hover:text-white transition-colors duration-300 shadow-inner">
+                            📱
+                        </div>
+                        <div class="text-xs font-semibold uppercase tracking-wider text-orange-600 dark:text-orange-400 mb-1">
+                            Android Mobile
+                        </div>
+                        <h3 class="text-2xl font-bold mb-3 text-slate-800 dark:text-slate-100 group-hover:text-orange-600 dark:group-hover:text-orange-400 transition-colors">
+                            La-Fierce (Android)
+                        </h3>
+                        <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed mb-6">
+                            Your bold, positive, and empowering social platform. Connect with others, share your story, celebrate the community, and earn your place in the fierce world.
+                        </p>
+                    </div>
+                    <div class="mt-auto pt-4 border-t border-slate-200/60 dark:border-slate-800/80 flex items-center justify-between">
+                        <div class="flex flex-wrap gap-1.5">
+                            <span class="bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 text-[11px] font-medium px-2 py-0.5 rounded-md">Android</span>
+                            <span class="bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 text-[11px] font-medium px-2 py-0.5 rounded-md">Social</span>
+                            <span class="bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 text-[11px] font-medium px-2 py-0.5 rounded-md">Mobile</span>
+                        </div>
+                        <span class="text-orange-600 dark:text-orange-400 text-sm font-semibold flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                            Launch Guide →
+                        </span>
+                    </div>
+                </div>
+            </a>
+
+            <!-- App 3 Card -->
+            <a href="app3/index.html" class="group block h-full focus:outline-none focus:ring-2 focus:ring-orange-500 rounded-2xl">
+                <div class="glass-card p-8 rounded-2xl shadow-sm group-hover:shadow-xl group-hover:-translate-y-2 transition-all duration-300 relative overflow-hidden flex flex-col h-full border border-slate-200/80 dark:border-slate-800">
+                    <div>
+                        <div class="w-14 h-14 bg-orange-500/10 text-orange-600 dark:text-orange-400 rounded-2xl flex items-center justify-center text-2xl mb-6 group-hover:bg-orange-500 group-hover:text-white transition-colors duration-300 shadow-inner">
+                            📱
+                        </div>
+                        <div class="text-xs font-semibold uppercase tracking-wider text-orange-600 dark:text-orange-400 mb-1">
+                            Android Admin
+                        </div>
+                        <h3 class="text-2xl font-bold mb-3 text-slate-800 dark:text-slate-100 group-hover:text-orange-600 dark:group-hover:text-orange-400 transition-colors">
+                            Admin Console (Android)
+                        </h3>
+                        <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed mb-6">
+                            Manage success stories, edit profiles, and curate inspirational content for La-Fierce.
+                        </p>
+                    </div>
+                    <div class="mt-auto pt-4 border-t border-slate-200/60 dark:border-slate-800/80 flex items-center justify-between">
+                        <div class="flex flex-wrap gap-1.5">
+                            <span class="bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 text-[11px] font-medium px-2 py-0.5 rounded-md">Android</span>
+                            <span class="bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 text-[11px] font-medium px-2 py-0.5 rounded-md">Admin</span>
+                            <span class="bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 text-[11px] font-medium px-2 py-0.5 rounded-md">CRUD</span>
+                        </div>
+                        <span class="text-orange-600 dark:text-orange-400 text-sm font-semibold flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                            Launch Guide →
+                        </span>
+                    </div>
+                </div>
+            </a>
+
+            <!-- App 4 Card -->
+            <a href="app4/index.html" class="group block h-full focus:outline-none focus:ring-2 focus:ring-orange-500 rounded-2xl">
+                <div class="glass-card p-8 rounded-2xl shadow-sm group-hover:shadow-xl group-hover:-translate-y-2 transition-all duration-300 relative overflow-hidden flex flex-col h-full border border-slate-200/80 dark:border-slate-800">
+                    <div>
+                        <div class="w-14 h-14 bg-orange-500/10 text-orange-600 dark:text-orange-400 rounded-2xl flex items-center justify-center text-2xl mb-6 group-hover:bg-orange-500 group-hover:text-white transition-colors duration-300 shadow-inner">
+                            🖥️
+                        </div>
+                        <div class="text-xs font-semibold uppercase tracking-wider text-orange-600 dark:text-orange-400 mb-1">
+                            Windows Desktop
+                        </div>
+                        <h3 class="text-2xl font-bold mb-3 text-slate-800 dark:text-slate-100 group-hover:text-orange-600 dark:group-hover:text-orange-400 transition-colors">
+                            Admin Console (Desktop)
+                        </h3>
+                        <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed mb-6">
+                            Windows-based CRUD tool with authentication, rich data visualization, and REST API integration.
+                        </p>
+                    </div>
+                    <div class="mt-auto pt-4 border-t border-slate-200/60 dark:border-slate-800/80 flex items-center justify-between">
+                        <div class="flex flex-wrap gap-1.5">
+                            <span class="bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 text-[11px] font-medium px-2 py-0.5 rounded-md">WinForms</span>
+                            <span class="bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 text-[11px] font-medium px-2 py-0.5 rounded-md">Desktop</span>
+                            <span class="bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 text-[11px] font-medium px-2 py-0.5 rounded-md">C#</span>
+                        </div>
+                        <span class="text-orange-600 dark:text-orange-400 text-sm font-semibold flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                            Launch Guide →
+                        </span>
+                    </div>
+                </div>
+            </a>
+
+        </div>
+
+        <!-- HOW TO ADD NEW FOLDERS GUIDE -->
+        <section class="mt-20 p-8 rounded-3xl bg-gradient-to-br from-slate-900 to-slate-950 border border-slate-800 text-white">
+            <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+                <div>
+                    <div class="inline-flex items-center gap-2 text-xs font-bold text-orange-400 uppercase tracking-widest mb-2">
+                        <span>💡</span>
+                        <span>Dynamic Folder Auto-Sync</span>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-2">Want to add more HTML pages/apps?</h3>
+                    <p class="text-slate-400 text-sm max-w-xl">
+                        Simply create a new subfolder in <code class="bg-slate-800 text-orange-300 px-2 py-0.5 rounded text-xs">web_version/</code> (e.g., <code class="bg-slate-800 text-orange-300 px-2 py-0.5 rounded text-xs">web_version/app5/index.html</code>). The dynamic engine automatically discovers new folders and renders their cards!
+                    </p>
+                </div>
+                <button onclick="document.getElementById('add-folder-modal').classList.remove('hidden')" class="px-5 py-3 rounded-xl bg-orange-600 hover:bg-orange-500 font-bold text-sm whitespace-nowrap shadow-lg shadow-orange-600/30 transition">
+                    📖 Read Instructions
+                </button>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- INSTRUCTIONS MODAL -->
+    <div id="add-folder-modal" class="hidden fixed inset-0 z-50 bg-black/70 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100 max-w-lg w-full rounded-3xl p-8 border border-slate-200 dark:border-slate-800 shadow-2xl relative">
+            <button onclick="document.getElementById('add-folder-modal').classList.add('hidden')" class="absolute top-6 right-6 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 text-xl font-bold">
+                ✕
+            </button>
+            <h3 class="text-2xl font-bold mb-4 flex items-center gap-2">
+                <span>📁</span>
+                <span>Adding New HTML Folders</span>
+            </h3>
+            <div class="space-y-4 text-sm text-slate-600 dark:text-slate-300">
+                <p>To add a new project to this web portal:</p>
+                <ol class="list-decimal list-inside space-y-2 font-medium">
+                    <li>Create a new folder inside <code class="bg-slate-100 dark:bg-slate-800 px-2 py-0.5 rounded text-orange-600 dark:text-orange-400">web_version/</code> (e.g. <code class="bg-slate-100 dark:bg-slate-800 px-2 py-0.5 rounded text-orange-600 dark:text-orange-400">app5/</code>).</li>
+                    <li>Place an <code class="bg-slate-100 dark:bg-slate-800 px-2 py-0.5 rounded text-orange-600 dark:text-orange-400">index.html</code> inside your new folder.</li>
+                    <li>(Optional) Include <code class="bg-slate-100 dark:bg-slate-800 px-2 py-0.5 rounded text-orange-600 dark:text-orange-400">&lt;meta name="description"&gt;</code>, <code class="bg-slate-100 dark:bg-slate-800 px-2 py-0.5 rounded text-orange-600 dark:text-orange-400">&lt;meta name="app-icon"&gt;</code>, and <code class="bg-slate-100 dark:bg-slate-800 px-2 py-0.5 rounded text-orange-600 dark:text-orange-400">&lt;meta name="app-tags"&gt;</code> in the HTML header for custom card details!</li>
+                    <li>Click <strong>Scan New Folders</strong> or refresh the home page!</li>
+                </ol>
+            </div>
+            <div class="mt-8 text-right">
+                <button onclick="document.getElementById('add-folder-modal').classList.add('hidden')" class="px-5 py-2.5 rounded-xl bg-orange-600 hover:bg-orange-500 text-white font-bold text-sm">
+                    Got it!
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- TOAST NOTIFICATION -->
+    <div id="toast-notification"></div>
+
+    <!-- FOOTER -->
+    <footer class="text-center py-8 text-slate-400 dark:text-slate-600 text-sm border-t border-slate-200 dark:border-slate-800/80">
+        &copy; 2026 Portal Interface Project &middot; Creations of Chris Cajes
+    </footer>
+
+    <!-- DYNAMIC ENGINE SCRIPT -->
+    <script src="script.js"></script>
+
+</body>
+</html>

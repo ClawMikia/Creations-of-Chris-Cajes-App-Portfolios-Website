@@ -1,0 +1,28 @@
+{
+  "apps": [
+    {
+      "folder": "app2",
+      "title": "La-Fierce (Android)",
+      "description": "Your bold, positive, and empowering social platform. Connect with others, share your story, celebrate the community, and earn your place in the fierce world.",
+      "icon": "📱",
+      "platform": "Android Mobile",
+      "tags": ["Android", "Social", "Mobile", "User Manual"]
+    },
+    {
+      "folder": "app3",
+      "title": "Admin Console (Android)",
+      "description": "Manage success stories, edit profiles, and curate inspirational content for La-Fierce.",
+      "icon": "📱",
+      "platform": "Android Admin",
+      "tags": ["Android", "Admin", "CRUD", "User Manual"]
+    },
+    {
+      "folder": "app4",
+      "title": "Admin Console (Desktop)",
+      "description": "Windows-based CRUD tool with authentication, rich data visualization, and REST API integration.",
+      "icon": "🖥️",
+      "platform": "Windows Desktop",
+      "tags": ["WinForms", "Desktop", "C#", "User Manual"]
+    }
+  ]
+}

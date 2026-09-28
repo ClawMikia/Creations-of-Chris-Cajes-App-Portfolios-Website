@@ -1,0 +1,117 @@
+/* ─── Web Version Portal Styles ─── */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+    --primary: #FF6B00;
+    --primary-hover: #e05d00;
+    --primary-light: #fff3eb;
+    --bg-light: #f8fafc;
+    --bg-dark: #090d16;
+    --card-light: rgba(255, 255, 255, 0.85);
+    --card-dark: rgba(15, 23, 42, 0.75);
+    --border-light: rgba(226, 232, 240, 0.8);
+    --border-dark: rgba(255, 255, 255, 0.08);
+}
+
+body {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    background-color: var(--bg-light);
+    color: #1e293b;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.dark body {
+    background-color: var(--bg-dark);
+    color: #f1f5f9;
+}
+
+/* Glassmorphism Card Effect */
+.glass-card {
+    background: var(--card-light);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--border-light);
+}
+
+.dark .glass-card {
+    background: var(--card-dark);
+    border: 1px solid var(--border-dark);
+}
+
+/* Category Filter Pills */
+.category-pill {
+    padding: 0.5rem 1.25rem;
+    border-radius: 9999px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #64748b;
+    background-color: #f1f5f9;
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.dark .category-pill {
+    color: #94a3b8;
+    background-color: #1e293b;
+}
+
+.category-pill:hover {
+    color: var(--primary);
+    background-color: #fff;
+    border-color: rgba(255, 107, 0, 0.3);
+}
+
+.dark .category-pill:hover {
+    color: var(--primary);
+    background-color: #0f172a;
+    border-color: rgba(255, 107, 0, 0.3);
+}
+
+.category-pill.active {
+    color: #ffffff;
+    background-color: var(--primary);
+    box-shadow: 0 4px 14px rgba(255, 107, 0, 0.35);
+}
+
+.dark .category-pill.active {
+    color: #ffffff;
+    background-color: var(--primary);
+    box-shadow: 0 4px 14px rgba(255, 107, 0, 0.45);
+}
+
+/* Toast Notifications */
+#toast-notification {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background-color: #0f172a;
+    color: #ffffff;
+    padding: 1rem 1.5rem;
+    border-radius: 0.75rem;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 107, 0, 0.4);
+    transform: translateY(150%);
+    opacity: 0;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
+    z-index: 100;
+    font-size: 0.875rem;
+    font-weight: 600;
+}
+
+#toast-notification.show {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.dark #toast-notification {
+    background-color: #1e293b;
+    border-color: rgba(255, 107, 0, 0.5);
+}
+
+/* Hero Gradient Text */
+.gradient-text {
+    background: linear-gradient(135deg, #FF6B00 0%, #FF8C3A 50%, #FF3700 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}

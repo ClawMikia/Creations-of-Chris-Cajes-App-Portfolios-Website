@@ -1,0 +1,1878 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>La-Fierce – User Manual</title>
+  <meta name="description" content="Your bold, positive, and empowering social platform user manual. Connect with others, share your story, celebrate the community, and earn your place in the fierce world." />
+  <meta name="app-icon" content="📱" />
+  <meta name="app-platform" content="Android Mobile" />
+  <meta name="app-tags" content="Android,Social,Mobile,User Manual" />
+  <style>
+    /* ─── Reset & Base ─── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --orange: #FF6B00;
+      --orange-light: #FF8C3A;
+      --orange-pale: #FFF3E8;
+      --dark: #111111;
+      --dark2: #1A1A1A;
+      --dark3: #252525;
+      --mid: #444444;
+      --text: #333333;
+      --text-light: #666666;
+      --border: #E0E0E0;
+      --white: #FFFFFF;
+      --sidebar-w: 280px;
+      --header-h: 64px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      font-size: 15px;
+      line-height: 1.7;
+      color: var(--text);
+      background: #F8F8F8;
+    }
+
+    /* ─── Top Header ─── */
+    .top-header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--header-h);
+      background: var(--dark);
+      display: flex;
+      align-items: center;
+      padding: 0 24px;
+      z-index: 1000;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.5);
+    }
+    .logo-area {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .logo-icon {
+      width: 40px; height: 40px;
+      background: var(--orange);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 20px;
+      flex-shrink: 0;
+    }
+    .logo-text {
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--white);
+      letter-spacing: -0.5px;
+    }
+    .logo-text span { color: var(--orange); }
+    .header-subtitle {
+      margin-left: auto;
+      color: #AAA;
+      font-size: 13px;
+    }
+    .back-nav {
+      margin-right: 15px;
+      color: var(--white);
+      text-decoration: none;
+      font-weight: bold;
+      background: rgba(255,107,0,0.2);
+      padding: 6px 12px;
+      border-radius: 6px;
+      border: 1px solid var(--orange);
+      transition: background 0.2s;
+    }
+    .back-nav:hover {
+      background: var(--orange);
+      text-decoration: none;
+    }
+
+    /* ─── Layout ─── */
+    .layout {
+      display: flex;
+      padding-top: var(--header-h);
+      min-height: 100vh;
+    }
+
+    /* ─── Sidebar ─── */
+    .sidebar {
+      width: var(--sidebar-w);
+      background: var(--dark2);
+      position: fixed;
+      top: var(--header-h);
+      left: 0;
+      bottom: 0;
+      overflow-y: auto;
+      padding: 20px 0 40px;
+      z-index: 900;
+    }
+    .sidebar::-webkit-scrollbar { width: 4px; }
+    .sidebar::-webkit-scrollbar-track { background: var(--dark2); }
+    .sidebar::-webkit-scrollbar-thumb { background: var(--mid); border-radius: 4px; }
+
+    .sidebar-section-title {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #666;
+      padding: 16px 20px 6px;
+      border-top: 1px solid #2A2A2A;
+      margin-top: 8px;
+    }
+    .sidebar-section-title:first-child { border-top: none; margin-top: 0; }
+
+    .sidebar a {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 9px 20px;
+      color: #BBB;
+      text-decoration: none;
+      font-size: 13.5px;
+      transition: all 0.15s;
+      border-left: 3px solid transparent;
+    }
+    .sidebar a:hover {
+      background: rgba(255,107,0,0.08);
+      color: var(--orange-light);
+      border-left-color: var(--orange-light);
+    }
+    .sidebar a .nav-icon { font-size: 15px; width: 20px; text-align: center; }
+
+    /* ─── Main Content ─── */
+    .main-content {
+      margin-left: var(--sidebar-w);
+      flex: 1;
+      padding: 40px 48px 80px;
+      max-width: 900px;
+    }
+
+    /* ─── Sections ─── */
+    .section { margin-bottom: 60px; }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 24px;
+      padding-bottom: 14px;
+      border-bottom: 2px solid var(--border);
+    }
+    .section-icon {
+      width: 46px; height: 46px;
+      background: var(--orange);
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 22px;
+      flex-shrink: 0;
+    }
+    .section-title {
+      font-size: 26px;
+      font-weight: 800;
+      color: var(--dark);
+    }
+    .section-num {
+      display: inline-block;
+      background: var(--orange-pale);
+      color: var(--orange);
+      font-size: 11px;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 20px;
+      letter-spacing: 0.5px;
+    }
+
+    /* ─── Hero Banner ─── */
+    .hero {
+      background: linear-gradient(135deg, var(--dark) 0%, var(--dark3) 60%, #2A1800 100%);
+      border-radius: 20px;
+      padding: 48px 40px;
+      margin-bottom: 60px;
+      color: var(--white);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '🔥';
+      position: absolute;
+      right: 40px; top: 30px;
+      font-size: 120px;
+      opacity: 0.08;
+      line-height: 1;
+    }
+    .hero-badge {
+      display: inline-block;
+      background: var(--orange);
+      color: white;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 4px 12px;
+      border-radius: 20px;
+      margin-bottom: 16px;
+    }
+    .hero h1 {
+      font-size: 40px;
+      font-weight: 900;
+      line-height: 1.1;
+      margin-bottom: 14px;
+      letter-spacing: -1px;
+    }
+    .hero h1 span { color: var(--orange); }
+    .hero p {
+      font-size: 16px;
+      color: #CCCCCC;
+      max-width: 560px;
+      line-height: 1.6;
+    }
+    .hero-meta {
+      display: flex;
+      gap: 28px;
+      margin-top: 28px;
+      flex-wrap: wrap;
+    }
+    .hero-meta-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      color: #AAA;
+    }
+    .hero-meta-item span.dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--orange);
+      display: inline-block;
+    }
+
+    /* ─── TOC ─── */
+    .toc {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 28px 32px;
+      margin-bottom: 60px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+    }
+    .toc h3 {
+      font-size: 14px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--text-light);
+      margin-bottom: 18px;
+    }
+    .toc-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px 28px;
+    }
+    .toc-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 6px 0;
+      text-decoration: none;
+      color: var(--text);
+      font-size: 14px;
+      border-bottom: 1px solid #F0F0F0;
+      transition: color 0.15s;
+    }
+    .toc-item:hover { color: var(--orange); }
+    .toc-item .toc-num {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--orange);
+      width: 22px;
+      flex-shrink: 0;
+    }
+    .toc-item .toc-emoji { font-size: 15px; }
+
+    /* ─── Prose ─── */
+    .prose p {
+      margin-bottom: 16px;
+      color: var(--text);
+    }
+    .prose h3 {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--dark);
+      margin: 28px 0 10px;
+    }
+    .prose h4 {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--dark);
+      margin: 20px 0 8px;
+    }
+
+    /* ─── Step Cards ─── */
+    .steps {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      margin: 20px 0;
+      position: relative;
+    }
+    .steps::before {
+      content: '';
+      position: absolute;
+      left: 20px;
+      top: 32px;
+      bottom: 32px;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--orange), #FFB97A);
+    }
+
+    .step {
+      display: flex;
+      gap: 20px;
+      padding: 18px 0;
+      position: relative;
+    }
+    .step-num {
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      background: var(--orange);
+      color: white;
+      font-weight: 800;
+      font-size: 15px;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      position: relative;
+      z-index: 1;
+      box-shadow: 0 0 0 4px var(--white);
+    }
+    .step-content { padding-top: 6px; }
+    .step-content strong {
+      display: block;
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 4px;
+    }
+    .step-content span { color: var(--text-light); font-size: 14px; }
+
+    /* ─── Feature Cards ─── */
+    .feature-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin: 20px 0;
+    }
+    .feature-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 20px;
+      transition: box-shadow 0.2s, border-color 0.2s;
+    }
+    .feature-card:hover {
+      box-shadow: 0 4px 20px rgba(255,107,0,0.1);
+      border-color: var(--orange-light);
+    }
+    .feature-card-icon {
+      font-size: 26px;
+      margin-bottom: 10px;
+    }
+    .feature-card h4 {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 6px;
+    }
+    .feature-card p {
+      font-size: 13.5px;
+      color: var(--text-light);
+      line-height: 1.55;
+      margin: 0;
+    }
+
+    /* ─── Info Boxes ─── */
+    .info-box {
+      border-radius: 12px;
+      padding: 16px 20px;
+      margin: 20px 0;
+      font-size: 14px;
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+    }
+    .info-box .ib-icon { font-size: 18px; flex-shrink: 0; margin-top: 1px; }
+    .info-box p { margin: 0; }
+    .info-tip { background: #E8F5E9; border-left: 4px solid #4CAF50; }
+    .info-tip p { color: #2E7D32; }
+    .info-note { background: var(--orange-pale); border-left: 4px solid var(--orange); }
+    .info-note p { color: #7A3700; }
+    .info-warn { background: #FFF8E1; border-left: 4px solid #FFC107; }
+    .info-warn p { color: #7A5F00; }
+    .info-danger { background: #FFEBEE; border-left: 4px solid #F44336; }
+    .info-danger p { color: #B71C1C; }
+
+    /* ─── Tab Nav ─── */
+    .tab-showcase {
+      display: flex;
+      gap: 0;
+      background: var(--dark);
+      border-radius: 14px;
+      overflow: hidden;
+      margin: 20px 0;
+      flex-wrap: wrap;
+    }
+    .tab-item {
+      flex: 1;
+      min-width: 80px;
+      padding: 14px 10px;
+      text-align: center;
+      color: #AAA;
+      font-size: 12px;
+      border-right: 1px solid #2A2A2A;
+    }
+    .tab-item:last-child { border-right: none; }
+    .tab-item .tab-emoji { font-size: 20px; display: block; margin-bottom: 4px; }
+    .tab-item.active { background: rgba(255,107,0,0.15); color: var(--orange-light); }
+
+    /* ─── Action Row ─── */
+    .action-row {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin: 16px 0;
+    }
+    .action-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      background: var(--dark);
+      color: var(--white);
+      border: none;
+      border-radius: 8px;
+      padding: 9px 16px;
+      font-size: 13.5px;
+      font-weight: 600;
+      cursor: default;
+    }
+    .action-btn.orange { background: var(--orange); }
+    .action-btn.outline {
+      background: transparent;
+      border: 1.5px solid var(--border);
+      color: var(--text);
+    }
+
+    /* ─── Pill Tags ─── */
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 14px 0;
+    }
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      background: var(--orange-pale);
+      color: var(--orange);
+      border: 1px solid #FFD4A8;
+      border-radius: 20px;
+      padding: 4px 12px;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    /* ─── Table ─── */
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 18px 0;
+      font-size: 14px;
+      background: var(--white);
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+    .data-table th {
+      background: var(--dark);
+      color: var(--white);
+      padding: 12px 16px;
+      text-align: left;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      font-weight: 700;
+    }
+    .data-table td {
+      padding: 12px 16px;
+      border-bottom: 1px solid #F0F0F0;
+      vertical-align: top;
+    }
+    .data-table tr:last-child td { border-bottom: none; }
+    .data-table tr:hover td { background: #FAFAFA; }
+    .data-table .emoji-cell { font-size: 18px; text-align: center; }
+
+    /* ─── Screenshot Mockup ─── */
+    .phone-mockup {
+      display: flex;
+      justify-content: center;
+      margin: 28px 0;
+    }
+    .phone-frame {
+      width: 220px;
+      background: var(--dark);
+      border-radius: 28px;
+      padding: 16px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.25), inset 0 0 0 1px #333;
+    }
+    .phone-screen {
+      background: #111;
+      border-radius: 18px;
+      overflow: hidden;
+      font-size: 10px;
+      color: white;
+    }
+    .phone-status-bar {
+      background: #000;
+      display: flex;
+      justify-content: space-between;
+      padding: 4px 12px;
+      font-size: 9px;
+      color: #CCC;
+    }
+    .phone-toolbar {
+      background: #1A1A1A;
+      padding: 8px 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .phone-toolbar-title { font-weight: 700; font-size: 11px; flex: 1; }
+    .phone-hamburger { font-size: 14px; color: #CCC; }
+    .phone-tab-bar {
+      background: #1A1A1A;
+      display: flex;
+      border-bottom: 1px solid #2A2A2A;
+      overflow-x: auto;
+    }
+    .phone-tab {
+      padding: 6px 8px;
+      font-size: 8px;
+      color: #888;
+      white-space: nowrap;
+      border-bottom: 2px solid transparent;
+    }
+    .phone-tab.active { color: #FF6B00; border-bottom-color: #FF6B00; }
+    .phone-post {
+      padding: 8px 10px;
+      border-bottom: 1px solid #222;
+    }
+    .phone-post-user {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 4px;
+    }
+    .phone-avatar {
+      width: 20px; height: 20px;
+      border-radius: 50%;
+      background: var(--orange);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 9px;
+    }
+    .phone-username { font-size: 9px; font-weight: 700; }
+    .phone-time { font-size: 8px; color: #666; margin-left: auto; }
+    .phone-post-content { font-size: 9px; color: #CCC; line-height: 1.4; margin-bottom: 6px; }
+    .phone-actions { display: flex; gap: 8px; }
+    .phone-action-btn {
+      background: #2A2A2A;
+      border-radius: 4px;
+      padding: 3px 6px;
+      font-size: 8px;
+      color: #AAA;
+      display: flex; align-items: center; gap: 3px;
+    }
+
+    /* ─── Notification Item ─── */
+    .notif-list { display: flex; flex-direction: column; gap: 10px; margin: 16px 0; }
+    .notif-item {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 12px 16px;
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+    .notif-icon { font-size: 20px; flex-shrink: 0; }
+    .notif-body { flex: 1; }
+    .notif-title { font-size: 13.5px; font-weight: 600; color: var(--dark); }
+    .notif-desc { font-size: 12.5px; color: var(--text-light); margin-top: 2px; }
+    .notif-badge {
+      background: var(--orange);
+      color: white;
+      border-radius: 20px;
+      font-size: 10px;
+      font-weight: 700;
+      padding: 2px 7px;
+      align-self: center;
+    }
+
+    /* ─── Divider ─── */
+    .divider {
+      height: 1px;
+      background: var(--border);
+      margin: 32px 0;
+    }
+
+    /* ─── Badge Showcase ─── */
+    .badge-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      margin: 18px 0;
+    }
+    .badge-item {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 16px 10px;
+      text-align: center;
+      transition: all 0.2s;
+    }
+    .badge-item:hover {
+      border-color: var(--orange);
+      box-shadow: 0 2px 12px rgba(255,107,0,0.12);
+    }
+    .badge-emoji { font-size: 30px; display: block; margin-bottom: 8px; }
+    .badge-name { font-size: 12px; font-weight: 700; color: var(--dark); margin-bottom: 4px; }
+    .badge-desc { font-size: 11px; color: var(--text-light); line-height: 1.35; }
+
+    /* ─── Drawer Mockup ─── */
+    .drawer-items { display: flex; flex-direction: column; gap: 4px; margin: 14px 0; }
+    .drawer-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 14px;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font-size: 14px;
+      color: var(--text);
+    }
+    .drawer-item .di-icon { font-size: 18px; width: 24px; text-align: center; }
+
+    /* ─── Responsive ─── */
+    @media (max-width: 900px) {
+      .sidebar { display: none; }
+      .main-content { margin-left: 0; padding: 24px 20px 60px; }
+      .feature-grid { grid-template-columns: 1fr; }
+      .toc-grid { grid-template-columns: 1fr; }
+      .badge-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    /* ─── Footer ─── */
+    .manual-footer {
+      background: var(--dark);
+      color: #888;
+      text-align: center;
+      padding: 28px 20px;
+      font-size: 13px;
+      margin-top: 60px;
+    }
+    .manual-footer strong { color: var(--orange); }
+  </style>
+</head>
+<body>
+
+<!-- ─── TOP HEADER ─── -->
+<header class="top-header">
+  <a href="../index.html" class="back-nav">← Home Portal</a>
+  <div class="logo-area">
+    <div class="logo-icon">🔥</div>
+    <span class="logo-text">La-<span>Fierce</span></span>
+  </div>
+  <span class="header-subtitle">User Manual &nbsp;·&nbsp; Android App</span>
+</header>
+
+<div class="layout">
+
+  <!-- ─── SIDEBAR ─── -->
+  <nav class="sidebar">
+    <div class="sidebar-section-title">Getting Started</div>
+    <a href="#intro"><span class="nav-icon">🏠</span> Introduction</a>
+    <a href="#requirements"><span class="nav-icon">📱</span> Requirements</a>
+    <a href="#account"><span class="nav-icon">🔑</span> Account Setup</a>
+
+    <div class="sidebar-section-title">Core Features</div>
+    <a href="#home"><span class="nav-icon">📋</span> Home & Navigation</a>
+    <a href="#posts"><span class="nav-icon">✍️</span> Posts</a>
+    <a href="#shares"><span class="nav-icon">🔁</span> Shares</a>
+    <a href="#search"><span class="nav-icon">🔍</span> Search</a>
+    <a href="#notifications"><span class="nav-icon">🔔</span> Notifications</a>
+    <a href="#messages"><span class="nav-icon">💬</span> Messages</a>
+
+    <div class="sidebar-section-title">Social Features</div>
+    <a href="#follow"><span class="nav-icon">👥</span> Follow & Friends</a>
+    <a href="#profiles"><span class="nav-icon">👤</span> User Profiles</a>
+    <a href="#badges"><span class="nav-icon">🏅</span> Badges & Streaks</a>
+    <a href="#nominations"><span class="nav-icon">🌟</span> Nominations</a>
+
+    <div class="sidebar-section-title">Content Moderation</div>
+    <a href="#bookmarks"><span class="nav-icon">🔖</span> Bookmarks</a>
+    <a href="#reporting"><span class="nav-icon">🛡️</span> Reporting</a>
+
+    <div class="sidebar-section-title">Settings & Account</div>
+    <a href="#profile-edit"><span class="nav-icon">✏️</span> Edit Profile</a>
+    <a href="#theme"><span class="nav-icon">🌙</span> Theme</a>
+    <a href="#feedback"><span class="nav-icon">📣</span> Feedback</a>
+    <a href="#updates"><span class="nav-icon">🔄</span> App Updates</a>
+    <a href="#faq"><span class="nav-icon">❓</span> FAQ</a>
+  </nav>
+
+  <!-- ─── MAIN CONTENT ─── -->
+  <main class="main-content">
+
+    <!-- HERO -->
+    <div class="hero">
+      <div class="hero-badge">Official User Manual</div>
+      <h1>Welcome to<br><span>La-Fierce</span> 🔥</h1>
+      <p>Your bold, positive, and empowering social platform. Connect with others, share your story, celebrate the community, and earn your place in the fierce world.</p>
+      <div class="hero-meta">
+        <div class="hero-meta-item"><span class="dot"></span> Android Application</div>
+        <div class="hero-meta-item"><span class="dot"></span> Firebase Push Notifications</div>
+        <div class="hero-meta-item"><span class="dot"></span> Dark Mode Support</div>
+        <div class="hero-meta-item"><span class="dot"></span> Google Sign-In</div>
+      </div>
+    </div>
+
+    <!-- TABLE OF CONTENTS -->
+    <div class="toc">
+      <h3>📖 Table of Contents</h3>
+      <div class="toc-grid">
+        <a href="#intro" class="toc-item"><span class="toc-num">1</span><span class="toc-emoji">🏠</span> Introduction</a>
+        <a href="#requirements" class="toc-item"><span class="toc-num">2</span><span class="toc-emoji">📱</span> Requirements</a>
+        <a href="#account" class="toc-item"><span class="toc-num">3</span><span class="toc-emoji">🔑</span> Account Setup</a>
+        <a href="#home" class="toc-item"><span class="toc-num">4</span><span class="toc-emoji">📋</span> Home & Navigation</a>
+        <a href="#posts" class="toc-item"><span class="toc-num">5</span><span class="toc-emoji">✍️</span> Posts</a>
+        <a href="#shares" class="toc-item"><span class="toc-num">6</span><span class="toc-emoji">🔁</span> Shares</a>
+        <a href="#search" class="toc-item"><span class="toc-num">7</span><span class="toc-emoji">🔍</span> Search</a>
+        <a href="#notifications" class="toc-item"><span class="toc-num">8</span><span class="toc-emoji">🔔</span> Notifications</a>
+        <a href="#messages" class="toc-item"><span class="toc-num">9</span><span class="toc-emoji">💬</span> Messages</a>
+        <a href="#follow" class="toc-item"><span class="toc-num">10</span><span class="toc-emoji">👥</span> Follow & Friends</a>
+        <a href="#profiles" class="toc-item"><span class="toc-num">11</span><span class="toc-emoji">👤</span> User Profiles</a>
+        <a href="#badges" class="toc-item"><span class="toc-num">12</span><span class="toc-emoji">🏅</span> Badges & Streaks</a>
+        <a href="#nominations" class="toc-item"><span class="toc-num">13</span><span class="toc-emoji">🌟</span> Nominations</a>
+        <a href="#bookmarks" class="toc-item"><span class="toc-num">14</span><span class="toc-emoji">🔖</span> Bookmarks</a>
+        <a href="#reporting" class="toc-item"><span class="toc-num">15</span><span class="toc-emoji">🛡️</span> Reporting</a>
+        <a href="#profile-edit" class="toc-item"><span class="toc-num">16</span><span class="toc-emoji">✏️</span> Edit Profile</a>
+        <a href="#theme" class="toc-item"><span class="toc-num">17</span><span class="toc-emoji">🌙</span> Theme & Settings</a>
+        <a href="#feedback" class="toc-item"><span class="toc-num">18</span><span class="toc-emoji">📣</span> Feedback</a>
+        <a href="#updates" class="toc-item"><span class="toc-num">19</span><span class="toc-emoji">🔄</span> App Updates</a>
+        <a href="#faq" class="toc-item"><span class="toc-num">20</span><span class="toc-emoji">❓</span> FAQ & Tips</a>
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <!-- SECTION 1 – INTRODUCTION -->
+    <!-- ═══════════════════════════════════════════════ -->
+    <section class="section" id="intro">
+      <div class="section-header">
+        <div class="section-icon">🏠</div>
+        <div>
+          <div class="section-num">Section 01</div>
+          <h2 class="section-title">Introduction</h2>
+        </div>
+      </div>
+      <div class="prose">
+        <p><strong>La-Fierce</strong> is a community-first social networking application for Android. It is designed around positivity, self-expression, and genuine human connection. The name "La-Fierce" reflects the boldness and strength the platform encourages in each of its members — whether you're sharing your daily thoughts, reacting to friends' content, nominating someone who inspires you, or celebrating your own progress streak.</p>
+        <p>Unlike many social platforms that focus purely on follower counts and vanity metrics, La-Fierce places emphasis on authentic interaction: comments that uplift, nominations that recognise good people, and badges that reward consistent participation. The platform's AI-assisted comment moderation actively filters out negativity to keep the community warm and welcoming.</p>
+        <p>This manual covers every feature of the La-Fierce Android app in detail, from creating your account and navigating the home feed to using advanced features such as direct messaging, nominations, streaks, and reporting. Whether you are a first-time user or someone looking to make the most of what the platform offers, this guide has you covered.</p>
+      </div>
+      <div class="feature-grid">
+        <div class="feature-card">
+          <div class="feature-card-icon">🔥</div>
+          <h4>Positivity-First</h4>
+          <p>AI moderation filters out negative comments automatically to maintain a warm, supportive community atmosphere.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card-icon">🏅</div>
+          <h4>Rewards & Recognition</h4>
+          <p>Earn badges for milestones and maintain daily streaks to showcase your commitment to the community.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card-icon">💬</div>
+          <h4>Real-Time Messaging</h4>
+          <p>Private direct messaging with unread badge counts keeps you connected with your friends at all times.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card-icon">🌟</div>
+          <h4>Nominations</h4>
+          <p>Nominate other community members who inspire or support you, acknowledging their positive impact.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <!-- SECTION 2 – REQUIREMENTS -->
+    <!-- ═══════════════════════════════════════════════ -->
+    <section class="section" id="requirements">
+      <div class="section-header">
+        <div class="section-icon">📱</div>
+        <div>
+          <div class="section-num">Section 02</div>
+          <h2 class="section-title">System Requirements</h2>
+        </div>
+      </div>
+      <div class="prose">
+        <p>Before installing and using La-Fierce, please make sure your device meets the following requirements to ensure a smooth experience.</p>
+      </div>
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Requirement</th>
+            <th>Minimum</th>
+            <th>Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Operating System</strong></td>
+            <td>Android 8.0 (Oreo / API 26)</td>
+            <td>Android 12+ recommended for full notification features</td>
+          </tr>
+          <tr>
+            <td><strong>Internet Connection</strong></td>
+            <td>Required (Wi-Fi or mobile data)</td>
+            <td>All content is loaded from the server in real time</td>
+          </tr>
+          <tr>
+            <td><strong>Google Play Services</strong></td>
+            <td>Required</td>
+            <td>Used for Google Sign-In and Firebase push notifications</td>
+          </tr>
+          <tr>
+            <td><strong>Storage</strong></td>
+            <td>~50 MB free</td>
+            <td>Profile photos are encoded as Base64 and cached locally</td>
+          </tr>
+          <tr>
+            <td><strong>Camera / Gallery</strong></td>
+            <td>Optional</td>
+            <td>Required only for uploading a profile picture</td>
+          </tr>
+          <tr>
+            <td><strong>Notifications Permission</strong></td>
+            <td>Optional (Android 13+)</td>
+            <td>Enables real-time push notifications for likes, comments, and messages</td>
+          </tr>
+          <tr>
+            <td><strong>Location Permission</strong></td>
+            <td>Optional</td>
+            <td>Used to improve content relevance; not required for core features</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="info-box info-note">
+        <span class="ib-icon">📌</span>
+        <p>La-Fierce uses Firebase Cloud Messaging (FCM) for push notifications. On Android 13 and above, you will be asked to grant notification permission the first time you open the app. You can change this permission at any time in your device's Settings → Apps → La-Fierce → Notifications.</p>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <!-- SECTION 3 – ACCOUNT SETUP -->
+    <!-- ═══════════════════════════════════════════════ -->
+    <section class="section" id="account">
+      <div class="section-header">
+        <div class="section-icon">🔑</div>
+        <div>
+          <div class="section-num">Section 03</div>
+          <h2 class="section-title">Account Setup</h2>
+        </div>
+      </div>
+      <div class="prose">
+        <p>La-Fierce gives you two ways to create an account and sign in: standard registration with a username and password, and quick sign-in via your Google account. Both paths are equally supported, and you can use either method to access the same community.</p>
+
+        <h3>3.1 Creating a New Account</h3>
+        <p>To register for the first time, open the app and tap <strong>Sign Up</strong> on the Login screen. You will be taken to the registration form.</p>
+      </div>
+
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-content">
+            <strong>Enter a Username</strong>
+            <span>Choose a unique username that identifies you in the community. Usernames are case-insensitive and must not already be taken.</span>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-content">
+            <strong>Enter your Email Address</strong>
+            <span>Provide a valid email address. This may be used for account recovery and Google Sign-In linking.</span>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-content">
+            <strong>Create a Password</strong>
+            <span>Your password must be at least 6 characters long. Enter it twice to confirm and avoid typos.</span>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">4</div>
+          <div class="step-content">
+            <strong>Select Your Gender</strong>
+            <span>Choose Male, Female, or Other from the dropdown. This is used for personalising the experience (e.g., comment hints).</span>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">5</div>
+          <div class="step-content">
+            <strong>Tap Sign Up</strong>
+            <span>If all fields are valid, your account will be created and you will be redirected back to the login screen.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="info-box info-tip">
+        <span class="ib-icon">✅</span>
+        <p>If you see the message "Username already taken", that username is already in use. Try a variation, such as adding numbers or underscores, to find a unique one.</p>
+      </div>
+
+      <div class="prose">
+        <h3>3.2 Signing In with Google</h3>
+        <p>On the Sign Up screen, tap <strong>Sign In with Google</strong>. The Google account picker will appear. Select your Google account and the app will automatically create or log into an existing La-Fierce account linked to that email. No password is required for this method.</p>
+
+        <h3>3.3 Logging In to an Existing Account</h3>
+        <p>If you already have an account, enter your username and password on the Login screen and tap <strong>Login</strong>. The app performs a session check on launch — if you were previously logged in and your session token is still valid, you will be taken directly to the home feed without needing to log in again.</p>
+
+        <h3>3.4 Session Management</h3>
+        <p>La-Fierce stores your session token securely on your device. This means you remain logged in between app restarts until you explicitly log out. The app also refreshes your profile data (username, profile picture, follower counts) automatically each time you open the home screen, ensuring your displayed information is always current.</p>
+      </div>
+
+      <div class="info-box info-warn">
+        <span class="ib-icon">⚠️</span>
+        <p>If you receive an "incorrect username or password" error, double-check that Caps Lock is not active and that you are using the same username (not email) you registered with. If you enter incorrect credentials too many times, the server may temporarily rate-limit login attempts — wait one minute before trying again.</p>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <!-- SECTION 4 – HOME & NAVIGATION -->
+    <!-- ═══════════════════════════════════════════════ -->
+    <section class="section" id="home">
+      <div class="section-header">
+        <div class="section-icon">📋</div>
+        <div>
+          <div class="section-num">Section 04</div>
+          <h2 class="section-title">Home & Navigation</h2>
+        </div>
+      </div>
+      <div class="prose">
+        <p>After logging in, you arrive at the <strong>Home Activity</strong> — the central hub of La-Fierce. The interface is organised into a top toolbar, a horizontal tab bar for switching between sections, and a side navigation drawer for accessing your profile and settings.</p>
+      </div>
+
+      <div class="tab-showcase">
+        <div class="tab-item active"><span class="tab-emoji">✍️</span>Posts</div>
+        <div class="tab-item"><span class="tab-emoji">🔁</span>Shares</div>
+        <div class="tab-item"><span class="tab-emoji">🔔</span>Notifs</div>
+        <div class="tab-item"><span class="tab-emoji">💬</span>Messages</div>
+        <div class="tab-item"><span class="tab-emoji">🔍</span>Search</div>
+        <div class="tab-item"><span class="tab-emoji">🏅</span>Badges</div>
+        <div class="tab-item"><span class="tab-emoji">🌟</span>Nominate</div>
+        <div class="tab-item"><span class="tab-emoji">📣</span>Feedback</div>
+        <div class="tab-item"><span class="tab-emoji">🔄</span>Updates</div>
+      </div>
+
+      <div class="prose">
+        <p>The tab bar contains nine tabs. Swipe horizontally or tap each tab to navigate between them. The notification bell and messages icon display live <strong>badge counts</strong> showing the number of unread items, so you can always stay aware of new activity at a glance.</p>
+
+        <h3>4.1 The Navigation Drawer</h3>
+        <p>Tap the <strong>hamburger icon ☰</strong> in the top-left corner to open the side navigation drawer. The drawer shows your profile picture and username at the top, and provides access to the following options:</p>
+      </div>
+
+      <div class="drawer-items">
+        <div class="drawer-item"><span class="di-icon">👤</span><strong>Profile</strong> &nbsp;– View your own profile page with your posts, shares, and follower counts</div>
+        <div class="drawer-item"><span class="di-icon">✏️</span><strong>Edit Profile</strong> &nbsp;– Update your username, password, gender, and profile picture</div>
+        <div class="drawer-item"><span class="di-icon">👥</span><strong>Friend Requests</strong> &nbsp;– View and manage incoming friend requests</div>
+        <div class="drawer-item"><span class="di-icon">🌙</span><strong>Switch Theme</strong> &nbsp;– Toggle between Light Mode and Dark Mode</div>
+        <div class="drawer-item"><span class="di-icon">🚪</span><strong>Logout</strong> &nbsp;– Securely log out and return to the Login screen</div>
+      </div>
+
+      <div class="info-box info-tip">
+        <span class="ib-icon">💡</span>
+        <p>When you are inside a sub-screen (such as your Profile or Edit Profile), the hamburger icon transforms into a <strong>back arrow ←</strong>. Tap it to return to the main feed.</p>
+      </div>
+
+      <div class="prose">
+        <h3>4.2 Back Navigation</h3>
+        <p>The Android system back button behaves intelligently within La-Fierce. If the navigation drawer is open, pressing back closes it. If you are in a sub-screen (such as Profile or Edit Profile), pressing back returns you to the main feed. If you are already on the main feed, pressing back exits the app.</p>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <!-- SECTION 5 – POSTS -->
+    <!-- ═══════════════════════════════════════════════ -->
+    <section class="section" id="posts">
+      <div class="section-header">
+        <div class="section-icon">✍️</div>
+        <div>
+          <div class="section-num">Section 05</div>
+          <h2 class="section-title">Posts</h2>
+        </div>
+      </div>
+      <div class="prose">
+        <p>The <strong>Posts</strong> tab is the heart of La-Fierce — it is where all community members share their thoughts, updates, and stories. The feed shows all posts from all users, displayed in reverse-chronological order so the freshest content is always at the top. Pull down on the list at any time to refresh and load the latest posts.</p>
+
+        <h3>5.1 Creating a Post</h3>
+        <p>At the top of the Posts feed, you will find a text input card. Type your message in the field and tap the <strong>Post</strong> button to share it with the entire community. There is no character limit restriction visible on the client, so feel free to express yourself fully. The app will confirm your post with an encouraging message such as <em>"That's the fierce spirit we love! 🔥"</em> or <em>"You inspire us every time! 💛"</em>.</p>
+      </div>
+
+      <div class="phone-mockup">
+        <div class="phone-frame">
+          <div class="phone-screen">
+            <div class="phone-status-bar"><span>9:41</span><span>📶 🔋</span></div>
+            <div class="phone-toolbar">
+              <span class="phone-hamburger">☰</span>
+              <span class="phone-toolbar-title">La-Fierce Home</span>
+            </div>
+            <div class="phone-tab-bar">
+              <div class="phone-tab active">Posts</div>
+              <div class="phone-tab">Shares</div>
+              <div class="phone-tab">🔔</div>
+              <div class="phone-tab">💬</div>
+              <div class="phone-tab">🔍</div>
+            </div>
+            <div style="padding:8px 10px; border-bottom:1px solid #222;">
+              <div style="background:#2A2A2A; border-radius:8px; padding:8px 10px; font-size:9px; color:#888; display:flex; justify-content:space-between; align-items:center;">
+                <span>Write something fierce...</span>
+                <span style="background:#FF6B00; color:white; padding:3px 8px; border-radius:6px; font-size:8px; font-weight:700;">Post</span>
+              </div>
+            </div>
+            <div class="phone-post">
+              <div class="phone-post-user">
+                <div class="phone-avatar">A</div>
+                <span class="phone-username">alex_fierce</span>
+                <span class="phone-time">2m ago</span>
+              </div>
+              <div class="phone-post-content">Today was challenging but I pushed through. Feeling stronger! 💪</div>
+              <div class="phone-actions">
+                <div class="phone-action-btn">❤️ 12</div>
+                <div class="phone-action-btn">💬 3</div>
+                <div class="phone-action-btn">🔁 2</div>
+                <div class="phone-action-btn">🔖</div>
+              </div>
+            </div>
+            <div class="phone-post">
+              <div class="phone-post-user">
+                <div class="phone-avatar" style="background:#7B2D8B;">M</div>
+                <span class="phone-username">maria_s</span>
+                <span class="phone-time">15m ago</span>
+              </div>
+              <div class="phone-post-content">New recipe turned out amazing! Sharing with the community 🍕</div>
+              <div class="phone-actions">
+                <div class="phone-action-btn">❤️ 7</div>
+                <div class="phone-action-btn">💬 1</div>
+                <div class="phone-action-btn">🔁 0</div>
+                <div class="phone-action-btn">🔖</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="prose">
+        <h3>5.2 Post Actions</h3>
+        <p>Each post card in the feed displays the author's avatar, username, and timestamp. Tapping the <strong>avatar</strong> of another user navigates to their profile. The following actions are available on every post:</p>
+      </div>
+
+      <table class="data-table">
+        <thead>
+          <tr><th>Action</th><th>Icon</th><th>Description</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Like</strong></td>
+            <td class="emoji-cell">❤️</td>
+            <td>Tap to like or un-like a post. The like counter updates immediately. Long-press the Like button to see a list of all users who have liked the post.</td>
+          </tr>
+          <tr>
+            <td><strong>Comment</strong></td>
+            <td class="emoji-cell">💬</td>
+            <td>Opens the Comments dialog where you can read existing comments and add your own. Comments are AI-moderated to ensure positivity.</td>
+          </tr>
+          <tr>
+            <td><strong>Share</strong></td>
+            <td class="emoji-cell">🔁</td>
+            <td>Re-shares the post to the Shares feed with an optional personal message or quote you add above the original content.</td>
+          </tr>
+          <tr>
+            <td><strong>Save / Bookmark</strong></td>
+            <td class="emoji-cell">🔖</td>
+            <td>Saves the post to your personal bookmarks for easy retrieval later. The button label changes to "Saved" in orange when active.</td>
+          </tr>
+          <tr>
+            <td><strong>Edit Post</strong></td>
+            <td class="emoji-cell">✏️</td>
+            <td>Visible only on your own posts. Tap to open an edit dialog where you can modify the post text. You may also delete the post from this dialog.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="prose">
+        <h3>5.3 Viewing a Post in Detail</h3>
+        <p>Tap anywhere on the post card (not on a button) to open the <strong>Post Detail</strong> view. This full-screen view shows the post content, all comments in a dedicated list, the full list of likes, and any shares of that post. It gives you a complete picture of the engagement around a particular post.</p>
+
+        <h3>5.4 Comment Moderation</h3>
+        <p>La-Fierce uses an AI moderation layer to analyse comments before they are published. If the content of your comment is detected as negative or harmful, the server will reject it and display a gentle message encouraging you to reframe your words positively — for example: <em>"Let's keep it kind and supportive here 💛"</em> or <em>"Fierce means strong AND kind! 💪"</em>. There is no penalty for a rejected comment; simply try again with a different tone.</p>
+
+        <h3>5.5 Reporting a Post</h3>
+        <p>If you see a post that violates community guidelines, you can report it by <strong>long-pressing</strong> on the post card. A report sheet will slide up from the bottom of the screen allowing you to select a reason (Spam, Hate speech, Harassment, False information, Violence, or Other) and optionally add a description. See <a href="#reporting">Section 15 – Reporting</a> for full details.</p>
+      </div>
+
+      <div class="info-box info-note">
+        <span class="ib-icon">🔔</span>
+        <p>When someone likes or comments on your post, you will receive a push notification (if enabled) and the notification will also appear in the Notifications tab with a red badge count.</p>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <!-- SECTION 6 – SHARES -->
+    <!-- ═══════════════════════════════════════════════ -->
+    <section class="section" id="shares">
+      <div class="section-header">
+        <div class="section-icon">🔁</div>
+        <div>
+          <div class="section-num">Section 06</div>
+          <h2 class="section-title">Shares</h2>
+        </div>
+      </div>
+      <div class="prose">
+        <p>The <strong>Shares</strong> tab shows all posts that community members have re-shared, with the original post displayed as a quoted block inside the share. A share can include an optional personal commentary written by the person sharing, giving it additional context or a personal perspective. The Shares feed works similarly to the Posts feed — it can be refreshed by pulling down and each share card has its own set of actions.</p>
+
+        <h3>6.1 Creating a Share</h3>
+        <p>To share someone else's post, tap the <strong>🔁 Share</strong> button on any post card in the Posts feed. A bottom sheet dialog will appear allowing you to add an optional message (a quote or commentary) before publishing the share. You can also share without adding any text. Once shared, the item appears in the Shares feed with a quoted block showing the original post below your commentary.</p>
+
+        <h3>6.2 Interactions on Shares</h3>
+        <p>Each share card supports the same core interactions as posts: you can <strong>like</strong> a share, <strong>comment</strong> on a share (with the same AI positivity moderation), and tap the share to open it in the full <strong>Share Detail</strong> view. If you are the author of a share, an edit button appears allowing you to modify your commentary text or delete the share entirely.</p>
+
+        <h3>6.3 Share Detail View</h3>
+        <p>Tapping on a share card opens the <strong>Share Detail Activity</strong>, which displays the share's full content and all its comments in one scrollable screen. The original quoted post is shown within the detail view so the full context is always clear.</p>
+      </div>
+
+      <div class="info-box info-tip">
+        <span class="ib-icon">💡</span>
+        <p>Sharing someone's post is a great way to amplify content you find inspiring or important. The original post author will be notified when their post is shared, helping to celebrate the content they created.</p>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <!-- SECTION 7 – SEARCH -->
+    <!-- ═══════════════════════════════════════════════ -->
+    <section class="section" id="search">
+      <div class="section-header">
+        <div class="section-icon">🔍</div>
+        <div>
+          <div class="section-num">Section 07</div>
+          <h2 class="section-title">Search</h2>
+        </div>
+      </div>
+      <div class="prose">
+        <p>The <strong>Search</strong> tab lets you find people, posts, and hashtags across the entire La-Fierce community. Results appear as a combined list grouped by category: users first, then posts, then hashtags.</p>
+
+        <h3>7.1 Using the Search Bar</h3>
+        <p>Type at least <strong>2 characters</strong> in the search bar to begin a search. Results are fetched automatically after a short debounce delay (approximately 400 ms), so you do not need to press a button — results appear as you type. Clear the field to return to the trending hashtags view.</p>
+
+        <h3>7.2 Trending Hashtags</h3>
+        <p>Before you begin typing, the Search screen shows a row of trending hashtag chips. Tap any chip to instantly populate the search bar with that hashtag's text and see related posts immediately. Trending topics are updated server-side and reflect the most popular discussions happening right now in the community.</p>
+
+        <h3>7.3 Search Result Types</h3>
+      </div>
+
+      <div class="feature-grid">
+        <div class="feature-card">
+          <div class="feature-card-icon">👤</div>
+          <h4>User Results</h4>
+          <p>Shows matching community members with their avatar, username, and verification badge. Tap a user to go to their profile.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card-icon">📝</div>
+          <h4>Post Results</h4>
+          <p>Shows posts whose content matches your search term. Tap a post result to navigate to the full Post Detail screen.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card-icon">#️⃣</div>
+          <h4>Hashtag Results</h4>
+          <p>Shows hashtags related to your query with their usage count. Tap a hashtag to see all posts tagged with it.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card-icon">✅</div>
+          <h4>Verified Badges</h4>
+          <p>Verified community members are marked with a ✅ checkmark in search results so you can easily identify trusted accounts.</p>
+        </div>
+      </div>
+
+      <div class="info-box info-tip">
+        <span class="ib-icon">💡</span>
+        <p>The Search tab doubles as a user directory when starting a new conversation. In the <strong>New Conversation</strong> dialog (Messages tab), the same search logic is used to find users you want to message.</p>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <!-- SECTION 8 – NOTIFICATIONS -->
+    <!-- ═══════════════════════════════════════════════ -->
+    <section class="section" id="notifications">
+      <div class="section-header">
+        <div class="section-icon">🔔</div>
+        <div>
+          <div class="section-num">Section 08</div>
+          <h2 class="section-title">Notifications</h2>
+        </div>
+      </div>
+      <div class="prose">
+        <p>The <strong>Notifications</strong> tab (bell icon 🔔) provides a chronological log of all recent activity involving you across the platform. A red numeric badge on the bell tab icon shows the count of unread notifications so you always know when something new needs your attention.</p>
+      </div>
+
+      <div class="notif-list">
+        <div class="notif-item">
+          <div class="notif-icon">❤️</div>
+          <div class="notif-body">
+            <div class="notif-title">Someone liked your post</div>
+            <div class="notif-desc">Tap to navigate directly to the post that was liked.</div>
+          </div>
+          <div class="notif-badge">NEW</div>
+        </div>
+        <div class="notif-item">
+          <div class="notif-icon">💬</div>
+          <div class="notif-body">
+            <div class="notif-title">New comment on your post</div>
+            <div class="notif-desc">See who commented and what they said by tapping the notification.</div>
+          </div>
+          <div class="notif-badge">NEW</div>
+        </div>
+        <div class="notif-item">
+          <div class="notif-icon">🔁</div>
+          <div class="notif-body">
+            <div class="notif-title">Your post was shared</div>
+            <div class="notif-desc">Someone found your content share-worthy — your post gained more reach!</div>
+          </div>
+        </div>
+        <div class="notif-item">
+          <div class="notif-icon">👥</div>
+          <div class="notif-body">
+            <div class="notif-title">New follower</div>
+            <div class="notif-desc">Tap to visit the profile of your new follower.</div>
+          </div>
+        </div>
+        <div class="notif-item">
+          <div class="notif-icon">🌟</div>
+          <div class="notif-body">
+            <div class="notif-title">You were nominated!</div>
+            <div class="notif-desc">A community member nominated you for recognition.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="prose">
+        <h3>8.1 Marking Notifications as Read</h3>
+        <p>Tapping any notification in the list marks it as read and navigates you to the relevant content (e.g., the post that was liked). Unread notifications are visually distinguished in the list. The badge count on the bell tab icon is updated automatically after you interact with notifications, and it is refreshed each time the Notifications screen is opened or resumed.</p>
+
+        <h3>8.2 Push Notifications</h3>
+        <p>In addition to in-app notifications, La-Fierce supports <strong>Firebase Cloud Messaging (FCM)</strong> push notifications. These are delivered to your device's notification tray even when the app is in the background or closed. When you tap a push notification, the app opens and navigates you directly to the relevant tab.</p>
+      </div>
+
+      <div class="info-box info-note">
+        <span class="ib-icon">📌</span>
+        <p>On Android 13 and above, the app will request notification permission on first launch. If you denied it previously, you can re-enable it by going to Settings → Apps → La-Fierce → Notifications and toggling it on.</p>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <!-- SECTION 9 – MESSAGES -->
+    <!-- ═══════════════════════════════════════════════ -->
+    <section class="section" id="messages">
+      <div class="section-header">
+        <div class="section-icon">💬</div>
+        <div>
+          <div class="section-num">Section 09</div>
+          <h2 class="section-title">Messages</h2>
+        </div>
+      </div>
+      <div class="prose">
+        <p>The <strong>Messages</strong> tab provides private one-on-one direct messaging between community members. A badge on the messages tab icon shows the total number of unread messages across all your conversations. All conversations are listed with the other user's avatar, name, last message preview, and timestamp.</p>
+
+        <h3>9.1 Starting a New Conversation</h3>
+        <p>Tap the <strong>floating action button (+)</strong> in the bottom-right corner of the Messages tab to open the New Conversation sheet. Search for a user by typing at least 2 characters of their username, then tap their name in the results list. If no previous conversation exists between you and that user, one will be created automatically — you will be taken directly to the chat screen.</p>
+
+        <h3>9.2 Inside a Chat</h3>
+        <p>The chat screen shows the conversation history in a speech-bubble layout: your messages appear on the right with a distinct bubble style, and messages from the other person appear on the left. Timestamps are shown for each message. Type your message in the input field at the bottom and tap <strong>Send</strong> to deliver it.</p>
+      </div>
+
+      <div class="feature-grid">
+        <div class="feature-card">
+          <div class="feature-card-icon">🔎</div>
+          <h4>Conversation Search</h4>
+          <p>Use the search bar at the top of the Messages tab to filter your conversation list by username or message preview text.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card-icon">✅</div>
+          <h4>Read Receipts</h4>
+          <p>Messages are automatically marked as read when you open a conversation. The unread badge updates accordingly.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card-icon">🔔</div>
+          <h4>Push Notifications</h4>
+          <p>Receive a push notification on your device when a new message arrives, even when the app is in the background.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card-icon">🔄</div>
+          <h4>Pull to Refresh</h4>
+          <p>Swipe down on the conversations list to refresh and check for new messages or updated conversation order.</p>
+        </div>
+      </div>
+
+      <div class="prose">
+        <h3>9.3 Messaging from a Profile</h3>
+        <p>When you visit another user's profile (see <a href="#profiles">Section 11</a>), you will see a <strong>Message</strong> button. Tapping it opens or creates a conversation with that user and takes you directly to the chat screen — you do not need to navigate to the Messages tab first.</p>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <!-- SECTION 10 – FOLLOW & FRIENDS -->
+    <!-- ═══════════════════════════════════════════════ -->
+    <section class="section" id="follow">
+      <div class="section-header">
+        <div class="section-icon">👥</div>
+        <div>
+          <div class="section-num">Section 10</div>
+          <h2 class="section-title">Follow & Friends</h2>
+        </div>
+      </div>
+      <div class="prose">
+        <p>La-Fierce features two distinct social connection systems: a public <strong>follow</strong> relationship (one-directional, like most social networks) and a mutual <strong>friend request</strong> system (two-directional, requiring acceptance). Both are managed from user profile pages.</p>
+
+        <h3>10.1 Following a User</h3>
+        <p>Navigate to any user's profile and tap <strong>Follow</strong>. The button label changes to "Following" and the user's follower count increments immediately. Tap it again to unfollow. Following does not require the other person's approval — it is a one-way subscription to their content.</p>
+
+        <h3>10.2 Follower & Following Lists</h3>
+        <p>On your own Profile page, tap the <strong>Followers</strong> or <strong>Following</strong> count to open a full list of the respective users. You can tap any user in those lists to visit their profile.</p>
+
+        <h3>10.3 Friend Requests</h3>
+        <p>Sending a friend request is a way to establish a closer mutual connection. On any user's profile, tap <strong>Add Friend</strong>. The button changes to <strong>Pending</strong> once the request is sent. The receiving user will be notified and can accept or decline. Once accepted, the button displays <strong>Friends ✓</strong>. You can cancel a pending request by tapping the button again before it is accepted.</p>
+      </div>
+
+      <table class="data-table">
+        <thead>
+          <tr><th>Button State</th><th>Meaning</th><th>Action When Tapped</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Add Friend</strong></td>
+            <td>No relationship exists yet</td>
+            <td>Sends a friend request to the user</td>
+          </tr>
+          <tr>
+            <td><strong>Pending</strong></td>
+            <td>Your request is awaiting approval</td>
+            <td>Cancels and withdraws the friend request</td>
+          </tr>
+          <tr>
+            <td><strong>Respond</strong></td>
+            <td>They sent you a request</td>
+            <td>Opens options to Accept or Decline</td>
+          </tr>
+          <tr>
+            <td><strong>Friends ✓</strong></td>
+            <td>Mutual friends</td>
+            <td>Tap to unfriend (removes mutual connection)</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="prose">
+        <h3>10.4 Managing Incoming Friend Requests</h3>
+        <p>Open the <strong>Navigation Drawer → Friend Requests</strong> to see a full list of pending incoming requests. Each request shows the sender's avatar and username. Tap <strong>Accept</strong> to confirm the friendship or <strong>Decline</strong> to reject it. Accepting a request establishes a mutual friendship visible on both profiles.</p>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <!-- SECTION 11 – USER PROFILES -->
+    <!-- ═══════════════════════════════════════════════ -->
+    <section class="section" id="profiles">
+      <div class="section-header">
+        <div class="section-icon">👤</div>
+        <div>
+          <div class="section-num">Section 11</div>
+          <h2 class="section-title">User Profiles</h2>
+        </div>
+      </div>
+      <div class="prose">
+        <p>Every La-Fierce member has a public profile page accessible to all other users. Profiles act as a personal hub, displaying everything a member has contributed to the community and making it easy to connect with them.</p>
+
+        <h3>11.1 Viewing Your Own Profile</h3>
+        <p>Open the navigation drawer and tap <strong>Profile</strong>. Your profile screen shows your profile picture, username, follower count, and following count. Below that, a tabbed view lets you switch between <strong>My Posts</strong> and <strong>My Shares</strong> so you can quickly review all your contributions. Tap on follower or following counts to open the respective lists.</p>
+
+        <h3>11.2 Viewing Another User's Profile</h3>
+        <p>Tap any user's <strong>avatar</strong> in the Posts or Shares feed to open their profile page. You can also reach profiles from search results, notifications, and follower/following lists. A user's profile shows their picture, username, follower/following counts, and all of their posts and shares in tabbed format.</p>
+      </div>
+
+      <div class="action-row">
+        <div class="action-btn orange">👥 Follow</div>
+        <div class="action-btn">👫 Add Friend</div>
+        <div class="action-btn">💬 Message</div>
+      </div>
+
+      <div class="prose">
+        <p>Three action buttons appear at the top of every other user's profile:</p>
+        <p>The <strong>Follow button</strong> (orange) shows whether you currently follow this person and lets you toggle the relationship. The <strong>Friend Request button</strong> manages the friendship state, cycling through none → pending → friends as described in Section 10. The <strong>Message button</strong> opens or creates a direct message conversation with this user and takes you immediately to the chat screen.</p>
+
+        <h3>11.3 Navigating Away from a Profile</h3>
+        <p>User profile pages are separate Activities in the app. Tap the <strong>back arrow</strong> in the toolbar to return to wherever you came from.</p>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <!-- SECTION 12 – BADGES & STREAKS -->
+    <!-- ═══════════════════════════════════════════════ -->
+    <section class="section" id="badges">
+      <div class="section-header">
+        <div class="section-icon">🏅</div>
+        <div>
+          <div class="section-num">Section 12</div>
+          <h2 class="section-title">Badges & Streaks</h2>
+        </div>
+      </div>
+      <div class="prose">
+        <p>The <strong>Badges</strong> tab is your personal achievement centre. It celebrates your engagement and consistency within La-Fierce through two systems: daily <strong>posting streaks</strong> and earned <strong>badges</strong>.</p>
+
+        <h3>12.1 Posting Streaks</h3>
+        <p>A streak tracks how many consecutive days you have posted. At the top of the Badges screen you will see:</p>
+      </div>
+
+      <div class="tags">
+        <div class="tag">🔥 Current Streak: X days</div>
+        <div class="tag">🏆 Best Streak: Y days</div>
+      </div>
+
+      <div class="prose">
+        <p>The <strong>current streak</strong> increments by one each day you publish at least one post. Miss a day and your streak resets to zero. Your <strong>longest streak</strong> (personal best) is preserved permanently even if your current streak resets, serving as a motivational benchmark.</p>
+
+        <h3>12.2 Earning Badges</h3>
+        <p>Badges are awarded by the platform when you reach specific milestones. Each badge has an emoji icon, a name, and a description explaining what you did to earn it. Badges are displayed in a 3-column grid so you can see at a glance which achievements you have unlocked. The server evaluates and awards badges automatically — you do not need to claim them manually.</p>
+      </div>
+
+      <div class="badge-grid">
+        <div class="badge-item">
+          <span class="badge-emoji">🌱</span>
+          <div class="badge-name">First Post</div>
+          <div class="badge-desc">Published your very first post</div>
+        </div>
+        <div class="badge-item">
+          <span class="badge-emoji">🔥</span>
+          <div class="badge-name">On Fire</div>
+          <div class="badge-desc">Maintained a 7-day posting streak</div>
+        </div>
+        <div class="badge-item">
+          <span class="badge-emoji">💬</span>
+          <div class="badge-name">Conversationalist</div>
+          <div class="badge-desc">Left comments on 10 posts</div>
+        </div>
+        <div class="badge-item">
+          <span class="badge-emoji">❤️</span>
+          <div class="badge-name">Loved</div>
+          <div class="badge-desc">Received 50 likes across your posts</div>
+        </div>
+        <div class="badge-item">
+          <span class="badge-emoji">🌟</span>
+          <div class="badge-name">Nominated</div>
+          <div class="badge-desc">Received a community nomination</div>
+        </div>
+        <div class="badge-item">
+          <span class="badge-emoji">🏆</span>
+          <div class="badge-name">Fierce Champion</div>
+          <div class="badge-desc">Reached a 30-day posting streak</div>
+        </div>
+        <div class="badge-item">
+          <span class="badge-emoji">👥</span>
+          <div class="badge-name">Social Butterfly</div>
+          <div class="badge-desc">Reached 25 followers</div>
+        </div>
+        <div class="badge-item">
+          <span class="badge-emoji">🔁</span>
+          <div class="badge-name">Amplifier</div>
+          <div class="badge-desc">Shared 10 posts from others</div>
+        </div>
+      </div>
+
+      <div class="info-box info-tip">
+        <span class="ib-icon">💡</span>
+        <p>Post every day to keep your streak going. Even a short post counts! The app encourages consistency — a 30-day streak is a significant achievement that earns you the "Fierce Champion" badge.</p>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <!-- SECTION 13 – NOMINATIONS -->
+    <!-- ═══════════════════════════════════════════════ -->
+    <section class="section" id="nominations">
+      <div class="section-header">
+        <div class="section-icon">🌟</div>
+        <div>
+          <div class="section-num">Section 13</div>
+          <h2 class="section-title">Nominations</h2>
+        </div>
+      </div>
+      <div class="prose">
+        <p>The <strong>Nominate</strong> tab lets you formally recognise another community member who you feel deserves acknowledgment for their positive presence, helpfulness, or inspiring contributions. Nominations are a special feature that sets La-Fierce apart — they are how the community collectively celebrates its best members.</p>
+
+        <h3>13.1 Submitting a Nomination</h3>
+      </div>
+
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-content">
+            <strong>Search for a Username</strong>
+            <span>Start typing in the "Nominated Username" field. A suggestion list appears as you type (after 2 characters). Tap the correct person to select them.</span>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-content">
+            <strong>Write a Reason</strong>
+            <span>Describe in the "Reason" field why you are nominating this person. Be genuine and specific — a heartfelt reason means more to the recipient.</span>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-content">
+            <strong>Submit the Nomination</strong>
+            <span>Tap the Submit button. The app will confirm with "Nomination submitted! 🌟" and clear the form so you can nominate others.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="info-box info-warn">
+        <span class="ib-icon">⚠️</span>
+        <p>You cannot nominate yourself. Attempting to do so will display the message "You can't nominate yourself!" and the submission will be blocked.</p>
+      </div>
+
+      <div class="prose">
+        <p>Nominations may contribute to earning special badges (such as the 🌟 "Nominated" badge) for the person you recognise. Receiving a nomination triggers a notification for the recipient, letting them know the community values them.</p>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <!-- SECTION 14 – BOOKMARKS -->
+    <!-- ═══════════════════════════════════════════════ -->
+    <section class="section" id="bookmarks">
+      <div class="section-header">
+        <div class="section-icon">🔖</div>
+        <div>
+          <div class="section-num">Section 14</div>
+          <h2 class="section-title">Bookmarks</h2>
+        </div>
+      </div>
+      <div class="prose">
+        <p>Bookmarks allow you to save any post you want to revisit later. This is useful for inspiring posts, important announcements, or any content you want to keep at your fingertips without searching for it again.</p>
+
+        <h3>14.1 Saving a Post</h3>
+        <p>On any post card, tap the <strong>🔖 Save</strong> button. The button immediately changes to <strong>"Saved"</strong> and the icon turns orange — this is an optimistic UI update that gives you instant visual feedback while the save is being confirmed with the server in the background. A toast message confirms "Post saved 🔖".</p>
+
+        <h3>14.2 Removing a Bookmark</h3>
+        <p>Tap the <strong>"Saved"</strong> button (now orange) on a previously bookmarked post to remove it. The button reverts to the default "Save" state and the post is removed from your saved list. A toast message confirms "Bookmark removed".</p>
+
+        <h3>14.3 Reliability</h3>
+        <p>The bookmark system uses an <strong>optimistic UI</strong> approach: the visual change happens instantly on your screen without waiting for the server response. If the network request fails (for example, due to a connection issue), the UI automatically reverts to its previous state and displays "Failed to update bookmark 😕", so you always know what's actually saved.</p>
+      </div>
+
+      <div class="info-box info-tip">
+        <span class="ib-icon">💡</span>
+        <p>Your bookmarks are stored server-side and are therefore preserved across devices and app reinstalls. Log in on a different Android device with the same account and your saved posts will still be there.</p>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <!-- SECTION 15 – REPORTING -->
+    <!-- ═══════════════════════════════════════════════ -->
+    <section class="section" id="reporting">
+      <div class="section-header">
+        <div class="section-icon">🛡️</div>
+        <div>
+          <div class="section-num">Section 15</div>
+          <h2 class="section-title">Reporting Content</h2>
+        </div>
+      </div>
+      <div class="prose">
+        <p>La-Fierce is committed to maintaining a safe and positive environment. The reporting system gives every member the power to flag content that violates community guidelines. Reports are reviewed by the La-Fierce moderation team.</p>
+
+        <h3>15.1 How to Report a Post</h3>
+        <p><strong>Long-press</strong> (press and hold) on any post card in the feed. A bottom sheet report dialog will appear. Select the most appropriate reason from the dropdown, optionally add a brief description to provide context, and tap <strong>Submit Report</strong>. A confirmation toast will thank you for helping keep La-Fierce safe.</p>
+
+        <h3>15.2 Report Reasons</h3>
+      </div>
+
+      <table class="data-table">
+        <thead><tr><th>Reason</th><th>When to Use</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Spam</strong></td><td>Repetitive promotional content, irrelevant links, bot-like posting behaviour</td></tr>
+          <tr><td><strong>Hate Speech</strong></td><td>Content targeting individuals or groups based on identity characteristics</td></tr>
+          <tr><td><strong>Harassment</strong></td><td>Persistent unwanted contact, bullying, or personal attacks directed at someone</td></tr>
+          <tr><td><strong>False Information</strong></td><td>Deliberately misleading or fabricated claims presented as fact</td></tr>
+          <tr><td><strong>Violence</strong></td><td>Content glorifying, promoting, or depicting acts of violence</td></tr>
+          <tr><td><strong>Other</strong></td><td>Any violation not covered by the categories above; describe in the text field</td></tr>
+        </tbody>
+      </table>
+
+      <div class="info-box info-danger">
+        <span class="ib-icon">🚨</span>
+        <p>Filing a false report intentionally is itself a violation of community guidelines. Please only report content that genuinely violates the rules. The moderation team reviews all reports and misuse may result in account restrictions.</p>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <!-- SECTION 16 – EDIT PROFILE -->
+    <!-- ═══════════════════════════════════════════════ -->
+    <section class="section" id="profile-edit">
+      <div class="section-header">
+        <div class="section-icon">✏️</div>
+        <div>
+          <div class="section-num">Section 16</div>
+          <h2 class="section-title">Editing Your Profile</h2>
+        </div>
+      </div>
+      <div class="prose">
+        <p>You can update your personal details at any time from the <strong>Navigation Drawer → Edit Profile</strong>. The Edit Profile screen lets you change your username, gender, password, and profile photo.</p>
+
+        <h3>16.1 Changing Your Username</h3>
+        <p>Edit the username field with your new desired name and tap <strong>Update Profile</strong>. If the username is already taken by another user, the server will reject it. Your new username will be saved to your local session immediately upon success and will appear throughout the app (navigation drawer, posts, comments, etc.).</p>
+
+        <h3>16.2 Changing Your Gender</h3>
+        <p>Select a new option from the Gender dropdown (Male, Female, or Other) and tap <strong>Update Profile</strong>. This updates how other users' comment hints are personalised when writing on your posts.</p>
+
+        <h3>16.3 Changing Your Password</h3>
+        <p>Enter your new password in the "New Password" field and confirm it in "Confirm Password". Both must match and be at least 6 characters. Tap <strong>Change Password</strong> to save. For security, the old password is not required in the current version — ensure you are in a trusted environment when changing passwords.</p>
+
+        <h3>16.4 Updating Your Profile Picture</h3>
+        <p>Tap your <strong>profile photo</strong> (or the photo container area) to open the system image picker. Select an image from your gallery or file manager. The app will then perform an important step: it uses <strong>Google ML Kit Face Detection</strong> to verify that the selected image contains a human face before uploading. This ensures all profile pictures are genuine portraits.</p>
+      </div>
+
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-content">
+            <strong>Tap your profile picture</strong>
+            <span>The image selector opens. Browse to your desired photo.</span>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-content">
+            <strong>Select the photo</strong>
+            <span>The app processes the image through face detection. A clear, front-facing portrait works best.</span>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-content">
+            <strong>Face detected — upload proceeds</strong>
+            <span>If a face is found, the image is converted to Base64 and uploaded to the server.</span>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">4</div>
+          <div class="step-content">
+            <strong>Profile picture updated</strong>
+            <span>Your new photo appears immediately in the Edit Profile screen, navigation drawer, and throughout the app.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="info-box info-note">
+        <span class="ib-icon">📌</span>
+        <p>If no face is detected in the selected image, the upload will be blocked and you will be prompted to select a photo that clearly shows a face. Group photos may work but individual portraits give the most reliable detection result.</p>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <!-- SECTION 17 – THEME -->
+    <!-- ═══════════════════════════════════════════════ -->
+    <section class="section" id="theme">
+      <div class="section-header">
+        <div class="section-icon">🌙</div>
+        <div>
+          <div class="section-num">Section 17</div>
+          <h2 class="section-title">Theme & Display Settings</h2>
+        </div>
+      </div>
+      <div class="prose">
+        <p>La-Fierce supports both a <strong>Light Mode</strong> and a <strong>Dark Mode</strong>. Dark Mode uses a deep black background with orange accents, which is easier on the eyes in low-light environments and conserves battery on OLED screens. Light Mode uses a clean white interface.</p>
+
+        <h3>17.1 Switching Themes</h3>
+        <p>Open the Navigation Drawer and tap <strong>Switch Theme</strong>. The theme toggles immediately throughout the entire app — all screens, dialogs, and input fields adapt to the selected theme. Your preference is saved locally and persists across app restarts.</p>
+
+        <h3>17.2 System Bars</h3>
+        <p>La-Fierce enforces a black status bar and navigation bar regardless of theme to maintain the brand's visual identity. This is applied consistently across all screens and is re-enforced each time the app resumes from the background.</p>
+      </div>
+
+      <div class="feature-grid">
+        <div class="feature-card">
+          <div class="feature-card-icon">🌙</div>
+          <h4>Dark Mode</h4>
+          <p>Deep black backgrounds with orange accent colour. Ideal for night-time use, reduces eye strain and saves battery on OLED displays.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card-icon">☀️</div>
+          <h4>Light Mode</h4>
+          <p>Clean white backgrounds with bold dark text. Perfect for daytime use in bright environments with natural lighting.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <!-- SECTION 18 – FEEDBACK -->
+    <!-- ═══════════════════════════════════════════════ -->
+    <section class="section" id="feedback">
+      <div class="section-header">
+        <div class="section-icon">📣</div>
+        <div>
+          <div class="section-num">Section 18</div>
+          <h2 class="section-title">Providing Feedback</h2>
+        </div>
+      </div>
+      <div class="prose">
+        <p>The <strong>Feedback</strong> tab (represented by the speech bubble icon) is a direct channel to the La-Fierce development team. Whether you have encountered a bug, have a feature request, or simply want to share your thoughts, this is the place to do it.</p>
+
+        <h3>18.1 Submitting Feedback</h3>
+        <p>Select a category from the dropdown (General, Bug, or Feature Request), write your message in the text field, and tap <strong>Submit Feedback</strong>. The team will receive your feedback along with your user ID for context. A confirmation message will appear thanking you for your contribution.</p>
+      </div>
+
+      <table class="data-table">
+        <thead><tr><th>Category</th><th>When to Use</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><strong>General</strong></td>
+            <td>General opinions, compliments, suggestions, or anything that doesn't fit the other categories</td>
+          </tr>
+          <tr>
+            <td><strong>Bug</strong></td>
+            <td>Something is not working correctly — describe the issue, what you expected, and what actually happened</td>
+          </tr>
+          <tr>
+            <td><strong>Feature</strong></td>
+            <td>A new capability you'd love to see added to La-Fierce in a future update</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="info-box info-tip">
+        <span class="ib-icon">💡</span>
+        <p>When reporting a bug, be as specific as possible: describe the screen you were on, the steps that led to the issue, and what the app displayed instead of the expected behaviour. This helps the team reproduce and fix it quickly.</p>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <!-- SECTION 19 – UPDATES -->
+    <!-- ═══════════════════════════════════════════════ -->
+    <section class="section" id="updates">
+      <div class="section-header">
+        <div class="section-icon">🔄</div>
+        <div>
+          <div class="section-num">Section 19</div>
+          <h2 class="section-title">App Updates</h2>
+        </div>
+      </div>
+      <div class="prose">
+        <p>The <strong>Updates</strong> tab (clock/refresh icon) provides transparency into the status of La-Fierce's ongoing development and maintenance. It shows which components or features of the platform have been recently updated and which improvements are still pending.</p>
+
+        <h3>19.1 Reading the Updates Screen</h3>
+        <p>At the top of the Updates screen you will see two summary counters:</p>
+      </div>
+
+      <div class="tags">
+        <div class="tag">✅ Updated: X items</div>
+        <div class="tag">🔄 Pending: Y items</div>
+      </div>
+
+      <div class="prose">
+        <p>Below the counters, a scrollable list shows individual update entries. Each entry describes a specific change, improvement, or fix that has been applied (✅ Updated) or is still being worked on (🔄 Pending). This gives you insight into the platform's progress and helps you understand what to expect in upcoming releases.</p>
+        <p>This screen is particularly useful for understanding when reported bugs have been fixed or when requested features have been shipped, as each update entry corresponds to real work done on the backend or app.</p>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <!-- SECTION 20 – FAQ -->
+    <!-- ═══════════════════════════════════════════════ -->
+    <section class="section" id="faq">
+      <div class="section-header">
+        <div class="section-icon">❓</div>
+        <div>
+          <div class="section-num">Section 20</div>
+          <h2 class="section-title">FAQ & Troubleshooting</h2>
+        </div>
+      </div>
+
+      <div class="prose">
+        <h3>Why was my comment rejected?</h3>
+        <p>La-Fierce uses AI moderation to maintain a positive community atmosphere. If your comment contains language that is detected as negative, harmful, or hurtful, it will be blocked before reaching the server and you will see a gentle suggestion to try again with a more supportive tone. This is not a ban or penalty — simply revise your wording and submit again. Comments that are constructive, encouraging, or empathetic are always welcome.</p>
+
+        <div class="divider"></div>
+
+        <h3>I'm not receiving push notifications — what's wrong?</h3>
+        <p>First, check that notification permission is granted: go to your device's Settings → Apps → La-Fierce → Notifications and ensure it is toggled on. On Android 13 and above, this permission must be explicitly granted. If the permission is already on but you still aren't receiving notifications, try logging out and back in — this triggers a fresh FCM token registration with the server.</p>
+
+        <div class="divider"></div>
+
+        <h3>How do I delete a post I've made?</h3>
+        <p>Tap the <strong>✏️ Edit</strong> button visible on your own post cards. In the edit dialog, you will find both an option to modify the content and an option to delete the post entirely. Deleted posts are removed from the feed immediately.</p>
+
+        <div class="divider"></div>
+
+        <h3>Why can't I upload my profile picture?</h3>
+        <p>La-Fierce requires your profile picture to contain a clearly visible human face, verified via Google ML Kit on-device face detection. If the image you selected does not contain a detectable face, the upload will be blocked. Try selecting a clear, well-lit portrait photo where your face is prominently visible and facing forward. Group photos may work but individual portraits are more reliable.</p>
+
+        <div class="divider"></div>
+
+        <h3>My streak reset — can it be restored?</h3>
+        <p>Streaks cannot be manually restored. A streak resets when you go a full calendar day without publishing at least one post. The best strategy is to post daily, even something brief, to maintain your streak. Your all-time longest streak is preserved permanently and cannot be lost, so that record always stands.</p>
+
+        <div class="divider"></div>
+
+        <h3>How do I find someone I know on La-Fierce?</h3>
+        <p>Use the Search tab and type their username. If you know at least 2 characters of their name, the search will find them. You can also browse follower and following lists on profiles you already know, as mutual connections often appear there.</p>
+
+        <div class="divider"></div>
+
+        <h3>Why does the app show "Looks like the server is taking a nap"?</h3>
+        <p>This friendly message appears when the app cannot connect to the La-Fierce server. This can happen due to an internet outage on your end, a temporary server maintenance window, or slow network conditions. Check your Wi-Fi or mobile data connection and try again. Pulling down to refresh the feed will attempt a fresh connection.</p>
+
+        <div class="divider"></div>
+
+        <h3>I sent a friend request by mistake — can I cancel it?</h3>
+        <p>Yes. Navigate to the profile of the person you accidentally sent a request to, and tap the <strong>Pending</strong> button. This will immediately cancel and withdraw your friend request before the other person accepts it.</p>
+
+        <div class="divider"></div>
+
+        <h3>Is my data private?</h3>
+        <p>Posts and shares are visible to all community members. Direct messages are private between you and the recipient. Your profile picture and username are publicly visible. Your email address is stored on the server but not displayed to other users. For any privacy concerns, use the Feedback tab to contact the La-Fierce team directly.</p>
+      </div>
+
+      <div class="info-box info-tip">
+        <span class="ib-icon">🌟</span>
+        <p>Still have questions? Use the <strong>Feedback tab</strong> inside the app to send your question directly to the La-Fierce team. Select the "General" category and describe your question. The team is here to help!</p>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<!-- FOOTER -->
+<footer class="manual-footer">
+  <p><strong>La-Fierce</strong> — Android User Manual &nbsp;·&nbsp; Be bold. Be kind. Be fierce. 🔥</p>
+  <p style="margin-top:6px; font-size:12px;">© La-Fierce. All rights reserved. This manual covers the La-Fierce Android application.</p>
+</footer>
+
+</body>
+</html>
